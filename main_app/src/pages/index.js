@@ -2,6 +2,7 @@ import * as React from "react";
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { useState } from "react";
+import "./my-element.bundled";
 
 const IndexPage = ({data}) => {
   const [body, setBody] = useState(data.allMdx.edges[0].node.body)
@@ -28,6 +29,7 @@ const IndexPage = ({data}) => {
 
   return (
     <>
+      <my-element /> 
       <h1>Hello World</h1>
       <button onClick={handleClick1}>Step 1</button>
       <button onClick={handleClick2}>Step 2</button>
