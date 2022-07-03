@@ -2,7 +2,7 @@ import * as React from "react";
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { useState } from "react";
-import "./my-element.bundled";
+import "../webComponents/my-element.bundled";
 import { Container } from "../components/styles/Container.styled";
 import { Info } from "../components/styles/Info.styled";
 import { StepOne } from "../components/styles/StepOne.styled";
@@ -10,6 +10,7 @@ import {Content} from "../components/styles/Content.styled"
 import { StepTwo } from "../components/styles/StepTwo.styled";
 import { StepThree } from "../components/styles/StepThree.styled";
 import { StepFour } from "../components/styles/StepFour.styled";
+import "../webComponents/side-bar.bundled.js";
 
 const IndexPage = ({data}) => {
   const [body, setBody] = useState(data.allMdx.edges[0].node.body)
@@ -56,6 +57,8 @@ const IndexPage = ({data}) => {
   
   return (
     <>
+      <side-bar homeLink="/" calendarLink="/Calendar">
+      </side-bar>
       <Container>
         <Info>
           <h1>Hello Username.</h1>

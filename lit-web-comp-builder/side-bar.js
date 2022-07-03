@@ -1,78 +1,62 @@
 import {LitElement, html, css} from 'lit';
 
 export class SideBar extends LitElement {
+  static properties = {
+    homeLink: "",
+    calendarLink: ""
+  };
+
   static get styles() {
     return css`
-      .mainContainer {
-        float: right;
-        top: 60px;
-        left: 0px;
-        width: 1366px;
-        height: 708px;
-        background: #D0D0CE33 0% 0% no-repeat padding-box;
-        opacity: 1;
+      :host {
+        position: fixed;
       }
 
       .container {
         /* Layout Properties */
-        float: left;
+        /* float: left; */
         top: 60px;
         left: 0px;
         width: 50px;
         height: 708px;
-        transform: matrix(0, 1, -1, 0, 0, 0);
+        /* transform: matrix(0, 1, -1, 0, 0, 0); */
         /* UI Properties */
         background: #2E308E 0% 0% no-repeat padding-box;
+        opacity: 1;
+      }
+
+      #homeIcon {
+        /* Layout Properties */
+        position: absolute;
+        top: 128px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+        /* UI Properties */
+        opacity: 1;
+      }
+
+      #calendarIcon {
+        /* Layout Properties */
+        position: absolute;
+        top: 187px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+        /* UI Properties */
         opacity: 1;
       }
     `;
   }
 
-  static get properties() {
-    return {
-      /**
-      * The name to say "Hello" to.
-      * @type {string}
-      */
-      name: {type: String},
-
-      /**
-      * The number of times the button has been clicked.
-      * @type {number}
-      */
-      count: {type: Number},
-    };
-  }
-
-  constructor() {
-    super();
-    this.name = 'World';
-    this.count = 0;
-  }
-
   render() {
     return html`
-    <div class="mainContainer">
       <div class="container">
-        <slot></slot>
+        <h1 id="homeIcon"><a href=${this.homeLink}>H</a></h1>
+        <h1 id="calendarIcon"><a href=${this.calendarLink}>C</a></h1>
       </div>
-    </div>
       
     `;
-  }
-
-  _onClick() {
-    this.count++;
-    this.dispatchEvent(new CustomEvent('count-changed'));
-  }
-
-  /**
-  * Formats a greeting
-  * @param name {string} The name to say "Hello" to
-  * @returns {string} A greeting directed at `name`
-  */
-  sayHello(name) {
-    return `Hello, ${name}`;
   }
 }
 
