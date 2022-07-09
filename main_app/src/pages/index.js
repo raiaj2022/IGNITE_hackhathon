@@ -13,9 +13,19 @@ import { StepFour } from "../components/styles/StepFour.styled";
 import "../webComponents/side-bar.bundled.js";
 
 const IndexPage = ({data}) => {
-  const [body, setBody] = useState(data.allMdx.edges[0].node.body)
+  const [body, setBody] = useState(data.allMdx.edges[0].node.body);
+  const [stepButtonsColor, setStepButtonsColor] = useState(
+    [
+      '#FFFFFF', 
+      '#f1f1ec33', 
+      '#f1f1ec33', 
+      '#f1f1ec33'
+    ]
+  );
+
 
   let handleClick1 = () => {
+    setStepButtonsColor(['#FFFFFF', '#f1f1ec33', '#f1f1ec33', '#f1f1ec33']);
     let edges = data.allMdx.edges;
 
     for (let i=0; i<edges.length; i++) {
@@ -26,6 +36,7 @@ const IndexPage = ({data}) => {
   }
 
   let handleClick2 = () => {
+    setStepButtonsColor(['#f1f1ec33', '#FFFFFF', '#f1f1ec33', '#f1f1ec33']);
     let edges = data.allMdx.edges;
 
     for (let i=0; i<edges.length; i++) {
@@ -36,6 +47,7 @@ const IndexPage = ({data}) => {
   }
 
   let handleClick3 = () => {
+    setStepButtonsColor(['#f1f1ec33', '#f1f1ec33', '#FFFFFF', '#f1f1ec33']);
     let edges = data.allMdx.edges;
 
     for (let i=0; i<edges.length; i++) {
@@ -46,6 +58,7 @@ const IndexPage = ({data}) => {
   }
 
   let handleClick4 = () => {
+    setStepButtonsColor(['#f1f1ec33', '#f1f1ec33', '#f1f1ec33', '#FFFFFF']);
     let edges = data.allMdx.edges;
 
     for (let i=0; i<edges.length; i++) {
@@ -64,19 +77,19 @@ const IndexPage = ({data}) => {
           <h1>Hello Username.</h1>
           <p>Find out what you need to do...</p>
         </Info>
-        <StepOne>
-          <h1><button onClick={handleClick1}>1</button></h1>
+        <StepOne btnColor={stepButtonsColor[0]}>
+          <button onClick={handleClick1}>1</button>
           <p>Step 1 Name</p>
         </StepOne>
-        <StepTwo>
-          <h1><button onClick={handleClick2}>2</button></h1>
+        <StepTwo btnColor={stepButtonsColor[1]}>
+          <button onClick={handleClick2}>2</button>
           <p>Step 2 Name</p>
         </StepTwo>
-        <StepThree>
+        <StepThree btnColor={stepButtonsColor[2]}>
           <h1><button onClick={handleClick3}>3</button></h1>
           <p>Step 3 Name</p>
         </StepThree>
-        <StepFour>
+        <StepFour btnColor={stepButtonsColor[3]}>
           <h1><button onClick={handleClick4}>4</button></h1>
           <p>Step 4 Name</p>
         </StepFour>

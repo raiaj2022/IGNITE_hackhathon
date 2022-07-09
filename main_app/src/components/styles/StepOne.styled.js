@@ -1,24 +1,21 @@
 import styled from 'styled-components';
 
 export const StepOne = styled.div`
-  /* Layout Properties */
-  position: absolute;
-  top: 256px;
-  left: 135px;
-  width: 40px;
-  height: 40px;
-  /* UI Properties */
-  background: #15B31F 0% 0% no-repeat padding-box;
-  opacity: 1;
-
-  p {
-    /* Layout Properties */
-    width: 94px;
-    /* UI Properties */
-    text-align: center;
-    font: normal normal bold 16px/21px Cognizant Sans;
-    letter-spacing: 0px;
-    color: #53565A;
+  button {
+    position: absolute;
+    border: none;
+    top: 230px;
+    left: 80px;
+    width: 149px;
+    height: 97px;
+    background: ${(props) => props.btnColor} 0% 0% no-repeat padding-box;
+    border-radius: 10px 0px 0px 10px;
     opacity: 1;
+  }
+  p {
+    position: absolute;
+    top: 278px;
+    left: 113px;
+    width: 149px;
   }
 `;
