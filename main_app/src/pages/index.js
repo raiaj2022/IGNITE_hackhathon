@@ -11,6 +11,7 @@ import { StepTwo } from "../components/styles/StepTwo.styled";
 import { StepThree } from "../components/styles/StepThree.styled";
 import { StepFour } from "../components/styles/StepFour.styled";
 import "../webComponents/side-bar.bundled.js";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 const IndexPage = ({data}) => {
   const [body, setBody] = useState(data.allMdx.edges[0].node.body);
@@ -78,7 +79,7 @@ const IndexPage = ({data}) => {
           <p>Find out what you need to do...</p>
         </Info>
         <StepOne btnColor={stepButtonsColor[0]}>
-          <button onClick={handleClick1}>1</button>
+          <button onClick={handleClick1}><BsFillCheckCircleFill/></button>
           <p>Step 1 Name</p>
         </StepOne>
         <StepTwo btnColor={stepButtonsColor[1]}>
