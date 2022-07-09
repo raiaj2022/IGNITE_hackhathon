@@ -17,8 +17,8 @@ const IndexPage = ({data}) => {
   const [body, setBody] = useState(data.allMdx.edges[0].node.body);
   const [stepButtonsColor, setStepButtonsColor] = useState(
     [
-      '#FFFFFF', 
       '#f1f1ec33', 
+      '#FFFFFF', 
       '#f1f1ec33', 
       '#f1f1ec33'
     ]
