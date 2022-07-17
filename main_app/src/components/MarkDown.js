@@ -76,7 +76,7 @@ const MarkDown = ({data}) => {
           <p>Step 1 Name</p>
         </StepOne>
         <StepTwo btnColor={stepButtonsColor[1]}>
-          <button onClick={handleClick2}>2</button>
+          <button onClick={handleClick2}><BsFillCheckCircleFill/></button>
           <p>Step 2 Name</p>
         </StepTwo>
         <StepThree btnColor={stepButtonsColor[2]}>
