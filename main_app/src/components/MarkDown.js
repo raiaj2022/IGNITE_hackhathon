@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useState } from "react";
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import "../webComponents/my-element.bundled";
@@ -11,13 +11,16 @@ import { StepThree } from "./styles/StepThree.styled";
 import { StepFour } from "./styles/StepFour.styled";
 import "../webComponents/side-bar.bundled.js";
 import { BsFillCheckCircleFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 const MarkDown = ({data}) => {
+  const isTicked = useSelector((state) => state.data.isTickedObj);
+
   const [body, setBody] = useState(data.allMdx.edges[0].node.body);
   const [stepButtonsColor, setStepButtonsColor] = useState(
     [
-      '#f1f1ec33', 
       '#FFFFFF', 
+      '#f1f1ec33', 
       '#f1f1ec33', 
       '#f1f1ec33'
     ]
@@ -72,19 +75,23 @@ const MarkDown = ({data}) => {
           <p>Find out what you need to do...</p>
         </Info>
         <StepOne btnColor={stepButtonsColor[0]}>
-          <button onClick={handleClick1}><BsFillCheckCircleFill/></button>
+          {/* <button onClick={handleClick1}><BsFillCheckCircleFill/></button> */}
+          {isTicked.step1 ? <button onClick={handleClick1}><BsFillCheckCircleFill/></button> : <h1><button onClick={handleClick1}>1</button></h1>}
           <p>Step 1 Name</p>
         </StepOne>
         <StepTwo btnColor={stepButtonsColor[1]}>
-          <button onClick={handleClick2}><BsFillCheckCircleFill/></button>
+          {/* <button onClick={handleClick2}><BsFillCheckCircleFill/></button> */}
+          {isTicked.step2 ? <button onClick={handleClick2}><BsFillCheckCircleFill/></button> : <h1><button onClick={handleClick2}>2</button></h1>}
           <p>Step 2 Name</p>
         </StepTwo>
         <StepThree btnColor={stepButtonsColor[2]}>
-          <h1><button onClick={handleClick3}>3</button></h1>
+          {/* <h1><button onClick={handleClick3}>3</button></h1> */}
+          {isTicked.step3 ? <button onClick={handleClick3}><BsFillCheckCircleFill/></button> : <h1><button onClick={handleClick3}>3</button></h1>}
           <p>Step 3 Name</p>
         </StepThree>
         <StepFour btnColor={stepButtonsColor[3]}>
-          <h1><button onClick={handleClick4}>4</button></h1>
+          {/* <h1><button onClick={handleClick4}>4</button></h1> */}
+          {isTicked.step4 ? <button onClick={handleClick4}><BsFillCheckCircleFill/></button> : <h1><button onClick={handleClick4}>4</button></h1>}
           <p>Step 4 Name</p>
         </StepFour>
         <Content>
