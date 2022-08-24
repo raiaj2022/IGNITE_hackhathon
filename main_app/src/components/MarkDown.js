@@ -68,7 +68,7 @@ const MarkDown = ({data}) => {
 
   return (
     <>
-      <side-bar homeLink="/" calendarLink="/Calendar" />
+      <side-bar homeLink="/" calendarLink="/calendar" personLink="/people" />
       <Container>
         <Info>
           <h1>Hello Username.</h1>
